@@ -1,12 +1,12 @@
 package db
 
 import (
-	"context"
+	"database/sql"
 	"log"
 	"os"
 	"testing"
 
-	"github.com/jackc/pgx/v5"
+	_ "github.com/lib/pq"
 )
 
 const (
@@ -17,8 +17,7 @@ const (
 var testQueries *Queries
 
 func TestMain(m *testing.M) {
-	ctx := context.Background()
-	conn, err := pgx.Connect(ctx, dbSource)
+	conn, err := sql.Open(dbDriver, dbSource)
 
 	if err != nil {
 		log.Fatal("cannot connect to database: ", err)
