@@ -7,6 +7,7 @@ import (
 	"github.com/JulianAVG64/Simple-Bank/api"
 	db "github.com/JulianAVG64/Simple-Bank/db/sqlc"
 	"github.com/JulianAVG64/Simple-Bank/util"
+	_ "github.com/golang/mock/mockgen/model"
 	_ "github.com/lib/pq"
 )
 
