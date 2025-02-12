@@ -1,6 +1,6 @@
 # This workflow will test golang code
 
-name: ci-test
+name: Run unit tests
 
 on:
   push:
