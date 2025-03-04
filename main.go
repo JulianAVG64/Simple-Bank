@@ -37,6 +37,7 @@ func main() {
 
 }
 
+// Starts gRPC server
 func runGrpcServer(config util.Config, store db.Store) {
 	server, err := gapi.NewServer(config, store)
 	if err != nil {
@@ -59,6 +60,7 @@ func runGrpcServer(config util.Config, store db.Store) {
 	}
 }
 
+// Starts HTTP gateway server
 func runGatewayServer(config util.Config, store db.Store) {
 	server, err := gapi.NewServer(config, store)
 	if err != nil {
@@ -89,6 +91,9 @@ func runGatewayServer(config util.Config, store db.Store) {
 	mux := http.NewServeMux()
 	mux.Handle("/", grpcMux)
 
+	fs := http.FileServer(http.Dir("./doc/swagger"))
+	mux.Handle("/swagger/", http.StripPrefix("/swagger/", fs))
+
 	listener, err := net.Listen("tcp", config.HTTPServerAddress)
 	if err != nil {
 		log.Fatal("cannot create listener:", err)
@@ -101,6 +106,7 @@ func runGatewayServer(config util.Config, store db.Store) {
 	}
 }
 
+// Start HTTP server with gin
 func runGinServer(config util.Config, store db.Store) {
 	server, err := api.NewServer(config, store)
 	if err != nil {
