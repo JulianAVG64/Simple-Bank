@@ -15,6 +15,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.1
 	github.com/o1egl/paseto v1.0.0
+	github.com/rakyll/statik v0.1.7
 	google.golang.org/genproto/googleapis/api v0.0.0-20250204164813-702378808489
 	google.golang.org/grpc v1.70.0
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.5.1
