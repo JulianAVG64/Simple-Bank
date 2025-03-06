@@ -15,9 +15,9 @@ import (
 	db "github.com/JulianAVG64/Simple-Bank/db/sqlc"
 	"github.com/JulianAVG64/Simple-Bank/util"
 	"github.com/gin-gonic/gin"
-	"github.com/golang/mock/gomock"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/require"
+	"go.uber.org/mock/gomock"
 )
 
 type eqCreateUserParamasMatcher struct {
