@@ -49,9 +49,6 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name simple-bank-eks --region us-east-2
 
-      - name: Revisar credenciales
-        run: cat ~/.aws/credentials
-
       - name: Verificar identidad en AWS
         run: aws sts get-caller-identity
 
