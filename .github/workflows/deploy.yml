@@ -49,18 +49,6 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name simple-bank-eks --region us-east-2
 
-      - name: Forzar la autenticación de kubectl
-        run: aws eks get-token --cluster-name simple-bank-eks --region us-east-2
-
-      - name: Verificar configuración de kubectl
-        run: kubectl config view --minify --raw
-
-      - name: Test AWS Authentication
-        run: aws sts get-caller-identity
-
-      - name: Test kubectl access
-        run: kubectl get nodes
-
       - name: Deploy image to Amazon EKS
         run: |
           kubectl apply -f eks/aws-auth.yaml
