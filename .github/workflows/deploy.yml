@@ -49,6 +49,9 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name simple-bank-eks --region us-east-2
 
+      - name: Verificar configuración de kubectl
+        run: kubectl config view --minify --raw
+
       - name: Test AWS Authentication
         run: aws sts get-caller-identity
 
