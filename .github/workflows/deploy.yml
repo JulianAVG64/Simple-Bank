@@ -49,6 +49,9 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name simple-bank-eks --region us-east-2
 
+      - name: Test AWS Authentication
+        run: aws sts get-caller-identity
+
       - name: Deploy image to Amazon EKS
         run: |
           kubectl apply -f eks/aws-auth.yaml
