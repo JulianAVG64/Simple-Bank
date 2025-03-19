@@ -52,8 +52,8 @@ jobs:
       - name: Verificar identidad en AWS
         run: aws sts get-caller-identity
 
-      - name: Verificar los permisos actuales en Kubernetes
-        run: kubectl auth can-i '*' '*' --all-namespaces
+      - name: Verificar autenticación con AWS EKS
+        run: aws eks get-token --cluster-name simple-bank-eks --region us-east-2
 
       - name: Deploy image to Amazon EKS
         run: |
