@@ -46,8 +46,9 @@ jobs:
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t $REGISTRY/$REPOSITORY:latest .
           docker push -a $REGISTRY/$REPOSITORY
 
-      - name: Update kube config
-        run: aws eks update-kubeconfig --name simple-bank-eks --region us-east-2
+      - name: Manually Set Kubeconfig
+        run: |
+          aws eks update-kubeconfig --name simple-bank-eks --region us-east-2 --role-arn arn:aws:iam::160885270181:role/gh-actions-role
 
       - name: Test AWS Authentication
         run: aws sts get-caller-identity
