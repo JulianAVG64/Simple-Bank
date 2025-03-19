@@ -49,9 +49,6 @@ jobs:
       - name: Update kube config
         run: aws eks update-kubeconfig --name simple-bank-eks --region us-east-2
 
-      - name: Verificar configuración de kubectl
-        run: kubectl config view --minify --raw
-
       - name: Deploy image to Amazon EKS
         run: |
           kubectl apply --validate=false -f eks/aws-auth.yaml
