@@ -22,6 +22,7 @@ require (
 	github.com/rakyll/statik v0.1.7
 	github.com/rs/zerolog v1.33.0
 	go.uber.org/mock v0.5.0
+	golang.org/x/sync v0.11.0
 	google.golang.org/genproto/googleapis/api v0.0.0-20250204164813-702378808489
 	google.golang.org/grpc v1.70.0
 )
@@ -37,7 +38,6 @@ require (
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/redis/go-redis/v9 v9.7.1 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
-	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
 )
 
